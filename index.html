@@ -9,6 +9,7 @@
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700&family=Barlow+Condensed:wght@600;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="icon" type="image/png" href="miniatures/logo.png">
 </head>
 
 <body>
@@ -52,13 +53,20 @@
                 <span class="stat-label">CLIENTS SATISFAITS</span>
             </div>
         </div>
+        <div class="scroll-action">
+            <p>SCROLL</p>
+            <a href="#gallery" class="scroll-link">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
     </section>
 
     <div class="separator reveal"></div>
 
     <section id="gallery">
         <div class="section-header reveal">
-            <h2>PORTFOLIO</h2>
+            <span class="sec-label">selection</span>
+            <h2>MON <em class="accent-color">PORTFOLIO</em></h2>
         </div>
         <div class="gallery-grid">
             <div class="gallery-card reveal delay-1">
@@ -104,7 +112,8 @@
                 </div>
             </div>
             <div class="about-text">
-                <h3>À PROPOS</h3>
+                <span class="sec-label">Qui suis-je ?</span>
+                <h3>À PROPOS<br>de <em>iokza</em></h3>
                 <p style="word-spacing: 2px; letter-spacing: 0.1px;">
                     Je suis <span style="color:white; font-weight: bold;">iokza</span> — un graphiste spécialisé dans
                     les miniatures YouTube et le branding pour créateurs de contenu.<br>Je conçois pour Internet depuis
@@ -124,6 +133,14 @@
                     partager des références et d'itérer rapidement. La première miniature est toujours gratuite, aucun
                     engagement requis.
                 </p>
+                <div class="about-tags">
+                    <span class="tag">Miniatures YouTube</span>
+                    <span class="tag">Branding</span>
+                    <span class="tag">Esport</span>
+                    <span class="tag">Gaming</span>
+                    <span class="tag">Lifestyle</span>
+                    <span class="tag">Tech</span>
+                </div>
             </div>
         </div>
     </section>
@@ -133,7 +150,7 @@
     <section id="contact" class="contact reveal">
         <div class="section-header">
             <span class="hero-eyebrow">DISPONIBLE POUR VOS PROJETS</span>
-            <h2>CONTACTEZ-MOI</h2>
+            <h2>Travaillons <em class="accent-color" style="font-style: normal;">ensemble</em></h2>
             <div class="contact-description">
                 <p>Envoyez-moi un message sur Discord pour discuter de vos projets, qu'ils soient de courts termes ou de
                     long terme.</p>
@@ -411,8 +428,8 @@
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+                linear-gradient(rgba(0, 102, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 102, 255, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
             z-index: -2;
             pointer-events: none;
@@ -476,6 +493,60 @@
             color: var(--text-dim);
             font-size: clamp(0.65rem, 0.9vw, 0.8rem);
             letter-spacing: 2px;
+        }
+
+        /* ── SCROLL DOWN INDICATOR ── */
+
+        .scroll-action {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            justify-content: center;
+        }
+
+        .scroll-action:hover {
+            filter: brightness(20) drop-shadow(0 0 5px var(--accent));
+            transition: 0.3s ease-in-out;
+        }
+
+        .scroll-action p {
+            color: var(--text-dim);
+            font-family: 'Barlow Condensed';
+            letter-spacing: 2px;
+            font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+            animation: scroll-slide 2.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+            margin-bottom: 8px;
+        }
+
+        .scroll-action .scroll-link {
+            color: var(--accent);
+            font-size: clamp(1rem, 0.5vw, 2.5rem);
+            animation: scroll-slide 2.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+            text-align: center;
+        }
+
+        /* Animation simplifiée avec deux états seulement */
+        @keyframes scroll-slide {
+            0% {
+                transform: translateY(-5px);
+                opacity: 0;
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            60% {
+                transform: translateY(10px);
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
         }
 
         /* ── GALLERY ────────────────────────────── */
@@ -588,8 +659,8 @@
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+                linear-gradient(rgba(0, 102, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 102, 255, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
             z-index: -2;
             pointer-events: none;
@@ -599,8 +670,13 @@
             font-family: 'Bebas Neue';
             font-size: clamp(2rem, 4vw, 3rem);
             margin-bottom: clamp(15px, 2.5vh, 25px);
-            color: var(--accent);
+            color: white;
             line-height: 1;
+        }
+
+        .about-text h3 em {
+            font-style: italic;
+            color: var(--accent);
         }
 
         .about-text p {
@@ -620,6 +696,31 @@
             transition: all 0.5s cubic-bezier(.25, 1, .5, 1);
         }
 
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+            padding-top: 14px;
+        }
+
+        .tag {
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 1px;
+            transition: all 0.3s;
+        }
+
+        .tag:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
         /* ── CONTACT ────────────────────────────── */
         .contact {
             text-align: center;
@@ -630,8 +731,8 @@
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+                linear-gradient(rgba(0, 102, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 102, 255, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
             z-index: -2;
             pointer-events: none;
@@ -702,6 +803,7 @@
             display: inline-flex;
             padding-top: clamp(30px, 10vh, 100px);
         }
+
         .wrapper a {
             text-decoration: none;
             color: inherit;
@@ -820,6 +922,30 @@
         .twitch span {
             background: #6441a5;
             box-shadow: 0 0px 10px #6441a5;
+        }
+
+        .sec-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .sec-label::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .accent-color {
+            color: var(--accent);
         }
 
         /* ════════════════════════════════════════════
@@ -1032,6 +1158,7 @@
 
             .about-text p {
                 font-size: 1.3rem;
+                max-width: 700px;
             }
 
             .about-logo {

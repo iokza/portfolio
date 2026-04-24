@@ -406,6 +406,19 @@
             padding-top: calc(var(--nav-h) + 20px);
         }
 
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+
         .hero-logo {
             width: clamp(50px, 6vw, 80px);
             height: clamp(50px, 6vw, 80px);
@@ -570,6 +583,18 @@
             align-items: center;
         }
 
+        .about-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
         .about-text h3 {
             font-family: 'Bebas Neue';
             font-size: clamp(2rem, 4vw, 3rem);
@@ -598,6 +623,18 @@
         /* ── CONTACT ────────────────────────────── */
         .contact {
             text-align: center;
+        }
+
+        .contact::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+            pointer-events: none;
         }
 
         .contact p {
